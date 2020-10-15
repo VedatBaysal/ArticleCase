@@ -4,14 +4,15 @@ using System.Linq;
 using ArticleCase.Core;
 using ArticleCase.Infrastructure.Services.Interfaces;
 using ArticleCase.Repository;
+using ArticleCase.Repository.Repositories.Interfaces;
 
 namespace ArticleCase.Infrastructure.Services
 {
     public class ArticleService : IArticleService
     {
-        private readonly IRepository<Article> _articleRepository;
+        private readonly IArticleRepository _articleRepository;
 
-        public ArticleService(IRepository<Article> articleRepository)
+        public ArticleService(IArticleRepository articleRepository)
         {
             _articleRepository = articleRepository;
         }

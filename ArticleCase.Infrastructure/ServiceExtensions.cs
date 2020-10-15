@@ -1,5 +1,6 @@
 ﻿using ArticleCase.Infrastructure.Services;
 using ArticleCase.Infrastructure.Services.Interfaces;
+using ArticleCase.Repository.Repositories;
 using ArticleCase.Repository.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 

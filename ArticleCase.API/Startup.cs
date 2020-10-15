@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +33,8 @@ namespace ArticleCase.API
             services.AddServices().AddRepositories();
             services.AddMediatR(typeof(Domain.Domain));
             services.AddAutoMapper(typeof(Domain.Domain));
+            services.AddDbContext<DbContext, ArticleDbContext>(builder =>
+                builder.UseSqlServer(@"Server=localhost\SQLEXPRESS01;Database=ArticleDb;Trusted_Connection=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

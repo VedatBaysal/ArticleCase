@@ -10,10 +10,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Mappings" />
       <Folder Include="Mediator\Commands" />
-      <Folder Include="Mediator\Handlers" />
-      <Folder Include="Mediator\Queries" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ArticleCase.Contract\ArticleCase.Contract.csproj" />
+      <ProjectReference Include="..\ArticleCase.Infrastructure\ArticleCase.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

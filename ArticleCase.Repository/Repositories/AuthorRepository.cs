@@ -1,9 +1,8 @@
 ﻿using ArticleCase.Core;
-using ArticleCase.Repository;
 using ArticleCase.Repository.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace ArticleCase.Infrastructure.Services
+namespace ArticleCase.Repository.Repositories
 {
     public class AuthorRepository : BaseRepository<Author>, IAuthorRepository
     {

@@ -9,4 +9,9 @@
       <ProjectReference Include="..\ArticleCase.Repository\ArticleCase.Repository.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.9" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    </ItemGroup>
+
 </Project>

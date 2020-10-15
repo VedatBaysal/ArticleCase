@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ArticleCase.API.Extensions;
+using ArticleCase.Domain.Mediator.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,6 +14,25 @@ namespace ArticleCase.API.Controllers
     [Route("api/[controller]")]
     public class ArticleController : ControllerBase
     {
-        
+        private readonly IMediator _mediator;
+
+        public ArticleController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllArticles()
+        {
+            var query = new GetAllArticlesQuery();
+            var response = await _mediator.Send(query);
+            return response.ToActionResult();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
