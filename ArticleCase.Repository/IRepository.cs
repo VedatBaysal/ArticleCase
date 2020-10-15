@@ -6,7 +6,7 @@ namespace ArticleCase.Repository
 {
     public interface IRepository<T> where T :BaseEntity
         {
-            void Add(T entity);
+            T Add(T entity);
             void AddRange(IEnumerable<T> entities);
             void Delete(T entity);
             void Update(T entity);

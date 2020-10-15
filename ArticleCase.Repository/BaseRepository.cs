@@ -15,9 +15,9 @@ namespace ArticleCase.Repository
         }
 
         private  DbSet<T> Table => _dbContext.Set<T>();
-        public void Add(T entity)
+        public T Add(T entity)
         {
-            Table.Add(entity);
+            return Table.Add(entity).Entity;
         }
 
         public void AddRange(IEnumerable<T> entities)
