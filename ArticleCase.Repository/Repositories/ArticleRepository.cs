@@ -9,5 +9,6 @@ namespace ArticleCase.Repository.Repositories
         public ArticleRepository(DbContext dbContext) : base(dbContext)
         {
         }
+        
     }
 }

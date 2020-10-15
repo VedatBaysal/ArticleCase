@@ -34,7 +34,8 @@ namespace ArticleCase.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateArticle(ArticleCreateModel model)
         {
-            var command = new CreateArticleCommand(model.Content, model.Description,model.ImageUrl, model.Language, model.Language,
+            var command = new CreateArticleCommand(model.Content, model.Description, model.ImageUrl, model.Language,
+                model.Language,
                 model.Title, model.Type, model.AuthorId);
             var response = await _mediator.Send(command);
             return response.ToActionResult();
@@ -43,7 +44,22 @@ namespace ArticleCase.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            throw new NotImplementedException();
+            var command = new GetByIdArticleQuery(id);
+            var response = await _mediator.Send(command);
+            return response.ToActionResult();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteArticle(int id)
+        {
+            var command = new DeleteArticleCommand(id);
+            var response =await _mediator.Send(command);
+            return response.ToActionResult();
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateArticle(ArticleViewModel articleViewModel)
+        {
+            
         }
     }
 }

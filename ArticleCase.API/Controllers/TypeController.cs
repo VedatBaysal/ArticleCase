@@ -1,6 +1,8 @@
-﻿namespace ArticleCase.API.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ArticleCase.API.Controllers
 {
-    public class TypeController
+    public class TypeController:ControllerBase
     {
         
     }

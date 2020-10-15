@@ -25,7 +25,8 @@ namespace ArticleCase.Infrastructure.Services
 
         public Article GetArticleById(int articleId)
         {
-            return _articleRepository.GetById(articleId);
+            return _articleRepository.GetQueryable().Include(x => x.Author).AsNoTracking().FirstOrDefault(x=>x.Id == articleId);
+
         }
         public Article CreateArticle(Article entity)
         {
