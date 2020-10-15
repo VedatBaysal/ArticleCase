@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ArticleCase.API.Extensions;
+using ArticleCase.Contract.Article;
+using ArticleCase.Domain.Mediator.Commands;
 using ArticleCase.Domain.Mediator.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +28,15 @@ namespace ArticleCase.API.Controllers
         {
             var query = new GetAllArticlesQuery();
             var response = await _mediator.Send(query);
+            return response.ToActionResult();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateArticle(ArticleCreateModel model)
+        {
+            var command = new CreateArticleCommand(model.Content, model.Description,model.ImageUrl, model.Language, model.Language,
+                model.Title, model.Type, model.AuthorId);
+            var response = await _mediator.Send(command);
             return response.ToActionResult();
         }
 

@@ -7,7 +7,7 @@ namespace ArticleCase.API.Extensions
     {
         public static IActionResult ToActionResult(this BaseResponseModel baseResponseModel)
         {
-            return new ObjectResult(baseResponseModel.Data)
+            return new ObjectResult(baseResponseModel)
             {
                 StatusCode = baseResponseModel.StatusCode
             };

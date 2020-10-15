@@ -10,10 +10,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Mediator\Commands" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ArticleCase.Contract\ArticleCase.Contract.csproj" />
       <ProjectReference Include="..\ArticleCase.Infrastructure\ArticleCase.Infrastructure.csproj" />
     </ItemGroup>

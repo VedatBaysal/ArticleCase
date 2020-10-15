@@ -7,7 +7,7 @@ using ArticleCase.Domain.Mediator.Queries;
 using ArticleCase.Infrastructure.Services.Interfaces;
 using AutoMapper;
 
-namespace ArticleCase.Domain.Mediator.Handlers
+namespace ArticleCase.Domain.Mediator.Handlers.ArticleHandlers
 {
     public class GetAllArticlesQueryHandler : IBaseRequestHandler<GetAllArticlesQuery>
     {

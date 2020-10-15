@@ -11,6 +11,7 @@ namespace ArticleCase.Infrastructure
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<IAuthorService, AuthorService>();
             return services;
         }
 

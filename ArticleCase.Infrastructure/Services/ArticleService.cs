@@ -5,6 +5,7 @@ using ArticleCase.Core;
 using ArticleCase.Infrastructure.Services.Interfaces;
 using ArticleCase.Repository;
 using ArticleCase.Repository.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ArticleCase.Infrastructure.Services
 {
@@ -19,7 +20,7 @@ namespace ArticleCase.Infrastructure.Services
 
         public IEnumerable<Article> GetAllArticles()
         {
-            return _articleRepository.GetQueryable().AsEnumerable();
+            return _articleRepository.GetQueryable().Include(x=>x.Author).AsEnumerable();
         }
 
         public Article GetArticleById(int articleId)
