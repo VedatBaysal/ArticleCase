@@ -10,6 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Mappings" />
       <Folder Include="Mediator\Commands" />
       <Folder Include="Mediator\Handlers" />
       <Folder Include="Mediator\Queries" />

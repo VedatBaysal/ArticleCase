@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ArticleCase.Infrastructure;
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,7 @@ namespace ArticleCase.API
             services.AddControllers();
             services.AddServices().AddRepositories();
             services.AddMediatR(typeof(Domain.Domain));
+            services.AddAutoMapper(typeof(Domain.Domain));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
