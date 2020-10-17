@@ -56,10 +56,12 @@ namespace ArticleCase.API.Controllers
             var response =await _mediator.Send(command);
             return response.ToActionResult();
         }
-        [HttpPut]
-        public async Task<IActionResult> UpdateArticle(ArticleViewModel articleViewModel)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateArticle(int id, [FromBody]ArticleUpdateModel model)
         {
-            
+            var command = new UpdateArticleCommand(model.Content, model.Description, model.ImageUrl, model.Language, model.Title, model.Type, model.AuthorId, id);
+            var response = await _mediator.Send(command);
+            return response.ToActionResult();
         }
     }
 }
