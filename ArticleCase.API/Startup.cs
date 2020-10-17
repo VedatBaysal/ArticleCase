@@ -34,7 +34,7 @@ namespace ArticleCase.API
             services.AddMediatR(typeof(Domain.Domain));
             services.AddAutoMapper(typeof(Domain.Domain));
             services.AddDbContext<DbContext, ArticleDbContext>(builder =>
-                builder.UseSqlServer(@"Server=localhost\SQLEXPRESS01;Database=ArticleDb;Trusted_Connection=True;"));
+                builder.UseSqlServer(@"Server=.;Database=ArticleDb;Trusted_Connection=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
