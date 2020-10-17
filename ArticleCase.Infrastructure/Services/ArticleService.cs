@@ -20,12 +20,12 @@ namespace ArticleCase.Infrastructure.Services
 
         public IEnumerable<Article> GetAllArticles()
         {
-            return _articleRepository.GetQueryable().Include(x=>x.Author).AsEnumerable();
+            return _articleRepository.GetQueryable().Include(x => x.Author).Where(x => !x.IsDeleted).AsEnumerable();
         }
 
         public Article GetArticleById(int articleId)
         {
-            return _articleRepository.GetQueryable().Include(x => x.Author).AsNoTracking().FirstOrDefault(x=>x.Id == articleId);
+            return _articleRepository.GetQueryable().Include(x => x.Author).Where(x => !x.IsDeleted).AsNoTracking().FirstOrDefault(x => x.Id == articleId);
 
         }
         public Article CreateArticle(Article entity)
@@ -45,7 +45,7 @@ namespace ArticleCase.Infrastructure.Services
             }
 
             updateFunction(found);
-            
+
             _articleRepository.Update(found);
             _articleRepository.SaveChanges();
             return found;
