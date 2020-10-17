@@ -22,12 +22,22 @@ namespace ArticleCase.Domain.Mediator.Handlers.ArticleHandlers
         public Task<BaseResponseModel> Handle(DeleteArticleCommand request, CancellationToken cancellationToken)
         {
             var deleteArticle = _articleService.DeleteArticle(request.Id);
-            return Task.FromResult(new BaseResponseModel
+            if (deleteArticle)
             {
-                Data = _mapper.Map<ArticleViewModel>(deleteArticle),
-                Description = "Kayıt başarıyla silindi",
-                StatusCode = 200
-            });
+                return Task.FromResult(new BaseResponseModel
+                {
+                    Description = "Kayıt başarıyla silindi",
+                    StatusCode = 200
+                });
+            }
+            else
+            {
+                return Task.FromResult(new BaseResponseModel
+                {
+                    Description = "Couldn't delete Article",
+                    StatusCode = 400
+                });
+            }
         }
     }
 }
