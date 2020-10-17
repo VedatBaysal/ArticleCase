@@ -1,6 +1,6 @@
 # ArticleCase
 - Projede kullanıdığınız tasarım desenleri hangileridir? Bu desenleri neden kullandınız?<br />
-    -Repository Pattern: veriye erişimin ve yönetimin tek noktaya indirilmesini sağlamak için.
+    -Repository Pattern: veriye erişimin ve yönetimin tek noktaya indirilmesini sağlamak için.<br />
     -CQRS - Mediator: Bileşenler arası bağımlılığı azaltılması için kullanıldığını araştırmıştım.
   
 - Kullandığınız teknoloji ve kütüphaneler hakkında daha önce tecrübeniz oldu mu? Tek tek
